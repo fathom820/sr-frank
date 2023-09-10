@@ -1,0 +1,8 @@
+services:
+  sr-frank:
+    build:
+      context: .
+    ports:
+      - '8080:8080'
+    # volumes:
+      
