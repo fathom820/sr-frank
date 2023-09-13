@@ -1,8 +1,10 @@
+version: '3'
 services:
   sr-frank:
     build:
       context: .
+    image: sr-frank:latest
+    container_name: sr-frank
     ports:
       - '8080:8080'
-    # volumes:
       
