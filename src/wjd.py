@@ -17,12 +17,12 @@ from config import CONFIG
 Parse the SQLite database and convert it to a file format.
 '''
 def parse():
-
   conn = sqlite3.connect(CONFIG.path.wjazzd)
   cursor = conn.cursor()
 
   # Execute SQL queries from cursor
-  cursor.execute('SELECT name FROM sqlite_master WHERE type="table";')
+  # cursor.execute('SELECT name FROM sqlite_master WHERE type="table";')
+  cursor.execute('SELECT * from beats;')
   rows = cursor.fetchall()
   print(rows)
 

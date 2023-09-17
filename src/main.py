@@ -33,7 +33,7 @@ or a PUT request.
 app = flask.Flask(__name__)
 
 '''
-API: Root
+API: root
 
 Sending a request to root (regardless of type)
 will return a debug message.
@@ -42,11 +42,20 @@ will return a debug message.
 def api_root():
   return('Hello, I\'m the root.')
 
+'''
+API: test
+
+This is a placeholder function, used only for
+development of the program. Its actions frequently
+change, thus there is no definition.
+'''
+@app.route('/test')
+def api_test():
+  wjd.parse()
+  return('Test concluded.')
 
 '''
 BEGIN PROGRAM RUNTIME
 '''
-
 if __name__ == '__main__':
-  print('test')
-  app.run(CONFIG.network.port) # should be 8080 unless some doofus (me) changes it
+  app.run(host=CONFIG.network.ip, port=CONFIG.network.port) # should be 8080 unless some idiot (me) changes it

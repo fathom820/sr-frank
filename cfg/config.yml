@@ -3,8 +3,8 @@ path:
   wjazzd: ../data/wjazzd.db
 
 network:
-  ip: localhost
+  ip: 127.0.0.1
   port: 8080
 
 logging:
-  level: 
+  level: 0

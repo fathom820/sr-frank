@@ -3,10 +3,14 @@ config.py
 ---
 This file is responsible for the indexing and storage
 of the configuration variables stored in cfg/config.yml.
+
+This file is also responsible for setting up the logging
+framework, which is handled via the Loguru library.
 '''
 
 # Libraries
-# from ruamel.yaml import YAML
+import yaml
+import loguru
 
 # Converts a nested dict into a nested object
 class NestedObject:
@@ -26,8 +30,6 @@ By default, it would be stored as nested dictionaries,
 and the syntax for indexing them is very annoying.
 '''
 with open('../cfg/config.yml', 'r') as config_file:
-  yaml = YAML(typ='safe')
-  config_dict = yaml.load(config_file)
   config_dict = yaml.safe_load(config_file)
 
 CONFIG = NestedObject(config_dict)
