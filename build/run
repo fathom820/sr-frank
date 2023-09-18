@@ -1,2 +1,2 @@
 #!/bin/bash
-yoiu h
+(cd ../src && ./main.py)
