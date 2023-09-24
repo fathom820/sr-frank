@@ -49,10 +49,9 @@ This is a placeholder function, used only for
 development of the program. Its actions frequently
 change, thus there is no definition.
 '''
-@app.route('/test')
+@app.route('/')
 def api_test():
-  wjd.parse()
-  return('Test concluded.')
+  return wjd.preprocess()
 
 '''
 BEGIN PROGRAM RUNTIME

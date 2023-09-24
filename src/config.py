@@ -12,7 +12,20 @@ framework, which is handled via the Loguru library.
 import yaml
 import loguru
 
-# Converts a nested dict into a nested object
+'''
+NestedObject
+---
+This class converts a set of nested dictionaries
+into a nest of objects. This was done purely for
+QOL when coding, as config.yml is imported by the
+YAML library as nested dictionaries.
+
+The Python syntax for nested objects looks.like.this.
+The Python syntax for nested dictionaries looks['like']['this']. 
+
+One is much more readable than the other, 
+hence my design choice.
+'''
 class NestedObject:
   def __init__(self, dictionary):
     for key, val in dictionary.items():

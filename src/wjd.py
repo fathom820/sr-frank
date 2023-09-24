@@ -8,23 +8,35 @@ values that both the LSTM and RC solution can understand.
 '''
 
 # Libraries
-import sqlite3
+import os
+import csv
 
 # Local
 from config import CONFIG
 
 '''
-Parse the SQLite database and convert it to a file format.
+1. Import the CSV data
 '''
-def parse():
-  conn = sqlite3.connect(CONFIG.path.wjazzd)
-  cursor = conn.cursor()
+def preprocess():
+  '''
+  The data from each CSV file is imported,
+  and is stored in '''
+  wjd_path = os.listdir(CONFIG.path.csv_beats)
+  wjd_data = []
 
-  # Execute SQL queries from cursor
-  # cursor.execute('SELECT name FROM sqlite_master WHERE type="table";')
-  cursor.execute('SELECT * from beats;')
-  rows = cursor.fetchall()
-  print(rows)
+  for fname in wjd_path:
+    fpath = os.path.join(CONFIG.path.csv_beats, fname)
+    fcontent = [] # stores individual rows of the file
+    
+    with open(fpath, 'r', newline='') as csv_file:
+      csv_reader = csv.reader(csv_file)
 
-  cursor.close()
-  conn.close()
+      # next(csv_reader) # skip the header
+
+      for row in csv_reader:
+        fcontent.append(row)
+        # print(fcontent)
+      
+      wjd_data.append(fcontent)
+
+  return wjd_data
