@@ -1,7 +1,8 @@
 ---
 path:
-  wjazzd: ../data/wjazzd.db
-  csv_beats: ../data/csv_beats/
+  data:
+    wjazzd: ../data/wjazzd.db
+    csv_beats: ../data/csv_beats_test/
 
 network:
   ip: 127.0.0.1               # Should be set to 'localhost' or 127.0.0.1

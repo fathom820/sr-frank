@@ -10,13 +10,10 @@ official documentation and in `readme.md`.
 '''
 
 # Libraries
-import sqlite3
+import flask
 
 # Local
 import wjd
-import sys
-import flask
-
 from config import CONFIG
 
 '''
@@ -33,8 +30,8 @@ or a PUT request.
 app = flask.Flask(__name__)
 
 '''
-API: root
-
+`api`
+---
 Sending a request to root (regardless of type)
 will return a debug message.
 '''
@@ -43,18 +40,19 @@ def api_root():
   return('Hello, I\'m the root.')
 
 '''
-API: test
-
-This is a placeholder function, used only for
-development of the program. Its actions frequently
-change, thus there is no definition.
+`api.preprocess`
+---
+This API call fully pre-processes the data from csv_beats,
+and generates the categories of the data needed for training and testing
+S-LSTM and S-RC.
 '''
-@app.route('/')
-def api_test():
-  return wjd.preprocess()
+@app.route('/preprocess')
+def api_preprocess():
+  wjd.preprocess()
+  return('Preprocessing successfully completed.')
 
 '''
-BEGIN PROGRAM RUNTIME
+SR-FRANK: BEGIN SERVER RUNTIME
 '''
 if __name__ == '__main__':
   app.run(host=CONFIG.network.ip, port=CONFIG.network.port) # should be 8080 unless some idiot (me) changes it
