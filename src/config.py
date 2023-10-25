@@ -10,7 +10,8 @@ framework, which is handled via the Loguru library.
 
 # Libraries
 import yaml
-import loguru
+from loguru import logger
+from datetime import datetime
 
 '''
 NestedObject
@@ -46,3 +47,13 @@ with open('../cfg/config.yml', 'r') as config_file:
   config_dict = yaml.safe_load(config_file)
 
 CONFIG = NestedObject(config_dict)
+
+'''
+Set up the logging framework.
+'''
+current_date = datetime.now().strftime('%Y-%m-%d')
+log_filename = f'sr-frank_{current_date}.log'
+log_format = '{time:YYYY-MM-DD HH:mm:ss} | {level:<5} | {name:<10}{function:<20}{line:<3} | {message}'
+
+logger.add(f'{CONFIG.logging.info_path}info_{log_filename}', rotation='1 day', format=log_format, level='INFO')
+logger.add(f'{CONFIG.logging.debug_path}debug_{log_filename}', rotation='1 day', format=log_format, level='DEBUG')

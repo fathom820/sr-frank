@@ -14,7 +14,7 @@ import flask
 
 # Local
 import wjd
-from config import CONFIG
+from config import CONFIG, logger
 
 '''
 API Configuration
@@ -37,6 +37,7 @@ will return a debug message.
 '''
 @app.route('/')
 def api_root():
+  logger.info('api.root')
   return('Hello, I\'m the root.')
 
 '''
@@ -45,14 +46,18 @@ def api_root():
 This API call fully pre-processes the data from csv_beats,
 and generates the categories of the data needed for training and testing
 S-LSTM and S-RC.
+
+See wjd.preprocess() for more details.
 '''
 @app.route('/preprocess')
 def api_preprocess():
+  logger.info('api.preprocess')
   wjd.preprocess()
-  return('Preprocessing successfully completed.')
+  return 'Done.'
 
 '''
 SR-FRANK: BEGIN SERVER RUNTIME
 '''
 if __name__ == '__main__':
+  logger.info(f'Starting SR-FRANK on {CONFIG.network.ip}:{CONFIG.network.port}')
   app.run(host=CONFIG.network.ip, port=CONFIG.network.port) # should be 8080 unless some idiot (me) changes it

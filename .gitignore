@@ -1,1 +1,4 @@
+data/csv_beats_*
 data-backup/
+logs/
+src/__pycache__/

@@ -1,12 +1,23 @@
 ---
 path:
   data:
-    wjazzd: ../data/wjazzd.db
-    csv_beats: ../data/csv_beats_test/
+    wjazzd: ../data/wjazzd.db                           # Location of WJD database in SQLite3 format.
+    csv_beats: ../data/csv_beats/                       # Location of unprocessed CSV beats file.
+    csv_beats_pass1: ../data/csv_beats_pass1/           # Output of pass 1, input of pass 2
+    csv_beats_pass2: ../data/csv_beats_pass2/           # Output of pass 2, input of pass 3
+    csv_beats_pass3: ../data/csv_beats_pass3/           # Output of pass 3 (final version)
+    bins:                                               # This 
+      - 0
+      - 25
+      - 50
+      - 75
+      - 100
 
 network:
-  ip: 127.0.0.1               # Should be set to 'localhost' or 127.0.0.1
+  ip: 127.0.0.1               # Should be set to 'localhost' or '127.0.0.1'.
   port: 8080                  # An arbitrary number that I happen to like.
 
 logging:
   level: 0                    # The detail level of logs (0-3).
+  info_path: ../logs/info/
+  debug_path: ../logs/debug/
