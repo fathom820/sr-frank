@@ -2,7 +2,7 @@
 path:
   data:
     wjazzd: ../data/wjazzd.db                           # Location of WJD database in SQLite3 format.
-    csv_beats: ../data/test/                       # Location of unprocessed CSV beats file.
+    csv_beats: ../data/csv_beats/                       # Location of unprocessed CSV beats file.
     csv_beats_pass1: ../data/csv_beats_pass1/           # Output of pass 1, input of pass 2.
     bins: ../data/bins/                                 # Output of pass 2.
 

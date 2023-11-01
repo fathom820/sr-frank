@@ -311,6 +311,6 @@ def preprocess():
         bin_accuracy = replaced_count / total_count
 
         logger.debug(f'Bin: {bin_:<5}Total count:{total_count:<5}Replaced count: {replaced_count:<5}Actual proportion: {bin_accuracy:<5}')
-           
 
+  logger.info('Preprocessing finished.')
   return True
