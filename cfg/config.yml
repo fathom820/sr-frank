@@ -2,22 +2,25 @@
 path:
   data:
     wjazzd: ../data/wjazzd.db                           # Location of WJD database in SQLite3 format.
-    csv_beats: ../data/csv_beats/                       # Location of unprocessed CSV beats file.
-    csv_beats_pass1: ../data/csv_beats_pass1/           # Output of pass 1, input of pass 2
-    csv_beats_pass2: ../data/csv_beats_pass2/           # Output of pass 2, input of pass 3
-    csv_beats_pass3: ../data/csv_beats_pass3/           # Output of pass 3 (final version)
-    bins:                                               # This 
-      - 0
-      - 25
-      - 50
-      - 75
-      - 100
+    csv_beats: ../data/test/                       # Location of unprocessed CSV beats file.
+    csv_beats_pass1: ../data/csv_beats_pass1/           # Output of pass 1, input of pass 2.
+    bins: ../data/bins/                                 # Output of pass 2.
+
+preprocess:
+  iqr_multiplier: 1.2                                   # Interquartile range is used to eliminate major pitch outliers from the dataset.
+  bins:                                                 # Wrong notes are introduced to the data at these frequencies (in percentages), and stored in their own bin.
+    - 0
+    - 1
+    - 25
+    - 50
+    - 75
+    - 100
 
 network:
-  ip: 127.0.0.1               # Should be set to 'localhost' or '127.0.0.1'.
-  port: 8080                  # An arbitrary number that I happen to like.
+  ip: 127.0.0.1                                         # Should be set to 'localhost' or '127.0.0.1'.
+  port: 8080                                            # An arbitrary number that I happen to like.
 
 logging:
-  level: 0                    # The detail level of logs (0-3).
-  info_path: ../logs/info/
-  debug_path: ../logs/debug/
+  level: 0                                              # The detail level of logs (0-3).
+  info_path: ../logs/info/                              # Location of info logs.
+  debug_path: ../logs/debug/                            # Location of debug logs.

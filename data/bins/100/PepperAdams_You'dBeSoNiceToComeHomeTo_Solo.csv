@@ -1,0 +1,4 @@
+bar,beat,note,chord,replaced,original_value
+1,1,42,A-6,True,40
+1,2,41,A-6,True,42
+1,3,40,A-6,True,43
