@@ -5,13 +5,21 @@ path:
     csv_beats: ../data/csv_beats/                       # Location of unprocessed CSV beats file.
     csv_beats_pass1: ../data/csv_beats_pass1/           # Output of pass 1, input of pass 2.
     bins: ../data/bins/                                 # Output of pass 2.
+  output:
+    rc: ../data/output/rc/
+    lstm: ../data/output/lstm/
 
 preprocess:
   iqr_multiplier: 1.2                                   # Interquartile range is used to eliminate major pitch outliers from the dataset.
   bins:                                                 # Wrong notes are introduced to the data at these frequencies (in percentages), and stored in their own bin.
     - 0
     - 1
+    - 5
+    - 10
+    - 15
+    - 20
     - 25
+    - 37.5
     - 50
     - 75
     - 100

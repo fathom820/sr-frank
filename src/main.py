@@ -14,6 +14,7 @@ import flask
 
 # Local
 import wjd
+import rc
 from config import CONFIG, logger
 
 '''
@@ -55,6 +56,11 @@ def api_preprocess():
   wjd.preprocess()
   return 'Done.'
 
+@app.route('/test/rc')
+def api_test_rc():
+  logger.info('api.test.rc')
+  rc.test()
+  return 'Done.'
 '''
 SR-FRANK: BEGIN SERVER RUNTIME
 '''
